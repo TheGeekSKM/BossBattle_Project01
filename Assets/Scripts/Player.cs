@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
-        playerInventory = new Inventory();
+        
     }
 
     private void Start()
