@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(TankController))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI coinText;
+    
     [SerializeField] int _maxHealth = 3;
     public int MaxHealth
     {
@@ -56,10 +56,7 @@ public class Player : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        coinText.text = "" + playerInventory.getCoinAmount();
-    }
+    
 
     public void DecreaseHealth(int amount)
     {

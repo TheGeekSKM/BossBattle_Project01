@@ -793,7 +793,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7deae910b21a2142adfc1132501442e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 1381499457}
   _maxHealth: 3
   playerInventory: {fileID: 732590198}
 --- !u!114 &732590198
@@ -809,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinCollection: []
+  coinText: {fileID: 1381499457}
 --- !u!1 &773184507
 GameObject:
   m_ObjectHideFlags: 0
