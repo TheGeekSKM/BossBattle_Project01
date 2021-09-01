@@ -10,6 +10,14 @@ public class Player : MonoBehaviour
     
     [SerializeField] int _maxHealth = 3;
     [SerializeField] TextMeshProUGUI healthText;
+
+    private bool _invincible;
+    public bool isInvincible
+    {
+        get { return _invincible;  }
+        set { _invincible = value;  }
+    }
+
     public int MaxHealth
     {
         get { return _maxHealth;  }
@@ -48,6 +56,11 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        if (_invincible)
+        {
+            _currentHealth = _maxHealth;
+        }
+
         healthText.text = "" + _currentHealth;
     }
 
