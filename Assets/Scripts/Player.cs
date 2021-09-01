@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     
     [SerializeField] int _maxHealth = 3;
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] Material playerMat;
+
+    private Color _playerOriginalColor;
+    public Color OriginalColor => _playerOriginalColor;
 
     private bool _invincible;
     public bool isInvincible
@@ -46,7 +50,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
-        
+        _playerOriginalColor = playerMat.color;
     }
 
     private void Start()
@@ -75,7 +79,15 @@ public class Player : MonoBehaviour
         
     }
 
-    
+    public void ChangeColor(Color color)
+    {
+        playerMat.color = color;
+    }
+
+    public void RevertColor()
+    {
+        playerMat.color = _playerOriginalColor;
+    }
 
     public void DecreaseHealth(int amount)
     {

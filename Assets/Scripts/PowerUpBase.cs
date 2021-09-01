@@ -44,9 +44,22 @@ public abstract class PowerUpBase : MonoBehaviour
         Player player = other.gameObject.GetComponent<Player>();
         if (player != null)
         {
+            Feedback();
             StartCoroutine(PowerUpTimer(_powerUpDuration, player));
-            gameObject.SetActive(false);
+            
 
+        }
+    }
+
+    private void Feedback()
+    {
+        if (_powerUpParticles != null)
+        {
+            _powerUpParticles = Instantiate(_powerUpParticles, transform.position, Quaternion.identity);
+        }
+        if (_powerUpSoundEffects)
+        {
+            AudioHelper.PlayClip2D(_powerUpSoundEffects, 1f);
         }
     }
 
@@ -55,7 +68,8 @@ public abstract class PowerUpBase : MonoBehaviour
         PowerUp(player);
         _powerUpRenderer.enabled = false;
         _powerUpCollider.enabled = false;
-        yield return new WaitForSeconds(_powerUpDuration);
+        yield return new WaitForSeconds(duration);
         PowerDown(player);
+        gameObject.SetActive(false);
     }
 }
