@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
     
     [SerializeField] int _maxHealth = 3;
+    [SerializeField] TextMeshProUGUI healthText;
     public int MaxHealth
     {
         get { return _maxHealth;  }
@@ -43,6 +44,11 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _currentHealth = _maxHealth;
+    }
+
+    private void Update()
+    {
+        healthText.text = "" + _currentHealth;
     }
 
     public void IncreaseHealth(int amount)
