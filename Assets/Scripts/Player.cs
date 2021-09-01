@@ -1,16 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(TankController))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] int _maxHealth = 3;
     public int MaxHealth
     {
         get { return _maxHealth;  }
     }
+
+    public Inventory playerInventory;
+    
 
     int _currentHealth;
     public int CurrentHealth
@@ -32,6 +37,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
+        playerInventory = new Inventory();
     }
 
     private void Start()
@@ -48,6 +54,11 @@ public class Player : MonoBehaviour
         }
 
         
+    }
+
+    private void Update()
+    {
+        coinText.text = "" + playerInventory.getCoinAmount();
     }
 
     public void DecreaseHealth(int amount)
