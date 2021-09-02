@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public abstract class PowerUpBase : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public abstract class PowerUpBase : MonoBehaviour
 
     [SerializeField] float _movementSpeed = 3f;
     protected float MovementSpeed => _movementSpeed;
+
+    
 
     [SerializeField] ParticleSystem _powerUpParticles;
     [SerializeField] AudioClip _powerUpSoundEffects;
@@ -38,6 +41,7 @@ public abstract class PowerUpBase : MonoBehaviour
 
     protected abstract void PowerUp(Player player);
     protected abstract void PowerDown(Player player);
+    
 
     private void OnTriggerEnter(Collider other)
     {
