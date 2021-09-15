@@ -37,15 +37,18 @@ public class TankController : MonoBehaviour
         // apply vector to the rigidbody
         _rb.MovePosition(_rb.position + moveOffset);
         // technically adjusting vector is more accurate! (but more complex)
+
+        
     }
 
     public void TurnTank()
     {
-        // calculate the turn amount
+
+        //// calculate the turn amount
         float turnAmountThisFrame = Input.GetAxis("Horizontal") * _turnSpeed;
-        // create a Quaternion from amount and direction (x,y,z)
+        //// create a Quaternion from amount and direction (x,y,z)
         Quaternion turnOffset = Quaternion.Euler(0, turnAmountThisFrame, 0);
-        // apply quaternion to the rigidbody
+        //// apply quaternion to the rigidbody
         _rb.MoveRotation(_rb.rotation * turnOffset);
     }
 }
