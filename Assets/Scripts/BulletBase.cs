@@ -37,11 +37,11 @@ public class BulletBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        BossMonster monster = other.gameObject.GetComponent<BossMonster>();
-        if (monster != null)
+        IDamageable target = other.gameObject.GetComponent<IDamageable>();
+        if (target != null)
         {
             Feedback();
-            Damage();
+            Damage(target);
             gameObject.SetActive(false);
         }
 
@@ -57,9 +57,9 @@ public class BulletBase : MonoBehaviour
         }
     }
 
-    protected virtual void Damage()
+    protected virtual void Damage(IDamageable entity)
     {
-        //need to make a health class first
+        entity.TakeDamage(3);
     }
 
 

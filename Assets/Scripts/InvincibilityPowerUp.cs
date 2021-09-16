@@ -5,14 +5,14 @@ using UnityEngine.UIElements;
 
 public class InvincibilityPowerUp : PowerUpBase
 {
-    [SerializeField] GameObject _invicibilityPanel;
+    
 
     protected override void PowerUp(Player player)
     {
         player.ChangeColor(new Color(100, 0, 0));
         player.isInvincible = true;
         Debug.Log("Invincible");
-        _invicibilityPanel.SetActive(true);
+        
     }
 
     protected override void PowerDown(Player player)
@@ -20,7 +20,7 @@ public class InvincibilityPowerUp : PowerUpBase
         player.isInvincible = false;
         player.RevertColor();
         Debug.Log("Not Invincible");
-        _invicibilityPanel.SetActive(false);
+        
     }
 
     protected override void Movement(Rigidbody rbNew)

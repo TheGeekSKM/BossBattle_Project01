@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 5516628183083614448}
   - component: {fileID: 5516628183083614449}
   - component: {fileID: 5516628183083614450}
+  - component: {fileID: -2570186324284961602}
   m_Layer: 0
   m_Name: SlowPoke
   m_TagString: Untagged
@@ -160,3 +161,16 @@ MonoBehaviour:
   _impactSound: {fileID: 8300000, guid: 821f9be68beb40c469fca90d65891e2c, type: 3}
   _moveSpeed: 0.15
   _slowAmount: 0.07
+--- !u!114 &-2570186324284961602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5516628183083614451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb45889c6ac8f0c4ca3111869a2a6b3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3

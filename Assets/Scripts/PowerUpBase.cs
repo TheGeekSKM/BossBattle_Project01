@@ -43,6 +43,7 @@ public abstract class PowerUpBase : MonoBehaviour
         Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
         rbNew.MoveRotation(_rB.rotation * turnOffset);
 
+
         
     }
 
