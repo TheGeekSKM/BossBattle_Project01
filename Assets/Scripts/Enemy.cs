@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] int _damageAmount = 1;
     [SerializeField] ParticleSystem _impactParticles;
     [SerializeField] AudioClip _impactSound;
+    [SerializeField] float _moveSpeed = .15f;
+    protected float MoveSpeed => _moveSpeed;
 
     Rigidbody _rb;
 
@@ -58,8 +60,9 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void Move()
+    protected virtual void Move()
     {
-        
+        Vector3 moveOffset = new Vector3(0, 0, (-1 * _moveSpeed)) ;
+        _rb.MovePosition(_rb.position + moveOffset);
     }
 }

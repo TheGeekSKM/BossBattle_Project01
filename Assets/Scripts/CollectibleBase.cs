@@ -7,6 +7,10 @@ public abstract class CollectibleBase : MonoBehaviour
     protected abstract void Collect(Player player);
     [SerializeField] float _movementSpeed = 1f;
     protected float MovementSpeed => _movementSpeed;
+
+    [SerializeField] float _moveSpeed = .15f;
+    protected float MoveSpeed => _moveSpeed;
+
     [SerializeField] ParticleSystem _collectParticles;
     [SerializeField] AudioClip _collectSound;
     Rigidbody _rb;
@@ -25,6 +29,9 @@ public abstract class CollectibleBase : MonoBehaviour
     {
         Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
         rb.MoveRotation(_rb.rotation * turnOffset);
+
+        Vector3 moveOffset = new Vector3(0, 0, (-1 * _moveSpeed));
+        rb.MovePosition(_rb.position + moveOffset);
     }
 
     private void OnTriggerEnter(Collider other)

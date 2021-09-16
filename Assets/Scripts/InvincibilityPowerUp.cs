@@ -27,5 +27,8 @@ public class InvincibilityPowerUp : PowerUpBase
     {
         Quaternion turnOffset = Quaternion.Euler(MovementSpeed, 0, MovementSpeed);
         rbNew.MoveRotation(GetComponent<Rigidbody>().rotation * turnOffset);
+
+        Vector3 moveOffset = new Vector3(0, 0, (-1 * MoveSpeed));
+        rbNew.MovePosition(GetComponent<Rigidbody>().position + moveOffset);
     }
 }

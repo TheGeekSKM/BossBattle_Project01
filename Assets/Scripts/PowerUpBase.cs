@@ -10,8 +10,11 @@ public abstract class PowerUpBase : MonoBehaviour
 
     [SerializeField] float _movementSpeed = 3f;
     protected float MovementSpeed => _movementSpeed;
-
     
+    [SerializeField] float _moveSpeed = 3f;
+    protected float MoveSpeed => _moveSpeed;
+
+
 
     [SerializeField] ParticleSystem _powerUpParticles;
     [SerializeField] AudioClip _powerUpSoundEffects;
@@ -31,12 +34,16 @@ public abstract class PowerUpBase : MonoBehaviour
     private void FixedUpdate()
     {
         Movement(_rB);
+       
+        
     }
 
     protected virtual void Movement(Rigidbody rbNew)
     {
         Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
         rbNew.MoveRotation(_rB.rotation * turnOffset);
+
+        
     }
 
     protected abstract void PowerUp(Player player);

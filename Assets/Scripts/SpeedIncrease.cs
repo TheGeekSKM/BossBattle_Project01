@@ -19,6 +19,9 @@ public class SpeedIncrease : CollectibleBase
     {
         Quaternion turnOffset = Quaternion.Euler(MovementSpeed, MovementSpeed, MovementSpeed);
         rb.MoveRotation(GetComponent<Rigidbody>().rotation * turnOffset);
+
+        Vector3 moveOffset = new Vector3(0, 0, (-1 * MoveSpeed));
+        rb.MovePosition(GetComponent<Rigidbody>().position + moveOffset);
     }
 
 
