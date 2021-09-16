@@ -48,6 +48,14 @@ public class BulletBase : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (transform.position.z > 50 || transform.position.z < -50 || transform.position.x > 75 || transform.position.x < -75)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     protected virtual void Feedback()
     {
         Instantiate(_explosionParticle, transform.position, Quaternion.identity);
