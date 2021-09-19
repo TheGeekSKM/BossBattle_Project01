@@ -6,10 +6,13 @@ public class Killer : Enemy
 {
     
 
-    protected override void PlayerImpact(Player player)
+    protected override void ObjectImpact(GameObject player)
     {
-        //base.PlayerImpact(player);
-        player.Kill();
+        if (player.GetComponent<Health>())
+        {
+            Health objectHealth = player.GetComponent<Health>();
+            objectHealth.Kill();
+        }
     }
 
    

@@ -6,7 +6,7 @@ public class SlowPoke : Enemy
 {
     [SerializeField] float _slowAmount = 0.1f;
 
-    protected override void PlayerImpact(Player player)
+    protected override void ObjectImpact(GameObject player)
     {
         //base.PlayerImpact(player);
         if (player != null)

@@ -37,10 +37,10 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null)
+        GameObject collidedObject = collision.gameObject;
+        if (collidedObject.GetComponent<Health>())
         {
-            PlayerImpact(player);
+            ObjectImpact(collidedObject);
             ImpactFeedback();
 
             Despawn();
@@ -52,9 +52,13 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    protected virtual void PlayerImpact(Player player)
+    protected virtual void ObjectImpact(GameObject gameColl)
     {
-        player.DecreaseHealth(_damageAmount);
+        if (gameColl.GetComponent<Health>())
+        {
+            Health objectHealth = gameColl.GetComponent<Health>();
+            objectHealth.TakeDamage(_damageAmount);
+        }
     }
 
     private void ImpactFeedback()

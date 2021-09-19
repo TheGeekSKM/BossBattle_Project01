@@ -8,9 +8,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    [SerializeField] int _maxHealth = 3;
+    
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] Material playerMat;
+    [SerializeField] Health playerHealth;
 
     private Color _playerOriginalColor;
     public Color OriginalColor => _playerOriginalColor;
@@ -22,27 +23,12 @@ public class Player : MonoBehaviour
         set { _invincible = value;  }
     }
 
-    public int MaxHealth
-    {
-        get { return _maxHealth;  }
-    }
+    
 
     public Inventory playerInventory;
     
 
-    int _currentHealth;
-    public int CurrentHealth
-    {
-        get { return _currentHealth; }
-        private set 
-        {
-            if (value > _maxHealth)
-            {
-                value = _maxHealth;
-            }
-            _currentHealth = value;
-        }
-    }
+    
 
 
     TankController _tankController;
@@ -51,32 +37,24 @@ public class Player : MonoBehaviour
     {
         _tankController = GetComponent<TankController>();
         _playerOriginalColor = playerMat.color;
+        playerHealth.MaxHealth = 5;
     }
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
+        //null
     }
 
     private void Update()
     {
-        if (_invincible)
-        {
-            _currentHealth = _maxHealth;
-        }
-
-        healthText.text = "" + _currentHealth;
+        healthText.text = "" + playerHealth.CurrentHealth;
     }
 
     public void IncreaseHealth(int amount)
     {
-        if (_currentHealth < _maxHealth)
-        {
-            _currentHealth += amount;
-            Debug.Log("Player's Health: " + _currentHealth);
-        }
 
-        
+        //null
+
     }
 
     public void ChangeColor(Color color)
@@ -91,19 +69,14 @@ public class Player : MonoBehaviour
 
     public void DecreaseHealth(int amount)
     {
-        _currentHealth -= amount;
-        Debug.Log("Player Health: " + _currentHealth);
-        if (_currentHealth <= 0f)
-        {
-            Kill();
-        }
+        //null
     }
 
-    public void Kill()
-    {
-        gameObject.SetActive(false);
+    //public void Kill()
+    //{
+    //    gameObject.SetActive(false);
 
-        //play some particles
-        //play some sounds
-    }
+    //    //play some particles
+    //    //play some sounds
+    //}
 }

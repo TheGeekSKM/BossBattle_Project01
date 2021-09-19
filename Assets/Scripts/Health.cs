@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
@@ -30,10 +31,12 @@ public class Health : MonoBehaviour, IDamageable
         }
     }
 
+   
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
+        
     }
 
 
@@ -52,6 +55,8 @@ public class Health : MonoBehaviour, IDamageable
         {
             Kill();
         }
+
+       
     }
 
     public void Kill()
