@@ -14,6 +14,8 @@ public abstract class PowerUpBase : MonoBehaviour
     [SerializeField] float _moveSpeed = 3f;
     protected float MoveSpeed => _moveSpeed;
 
+    [SerializeField] float zValueToDespawn = -30f;
+
 
 
     [SerializeField] ParticleSystem _powerUpParticles;
@@ -29,6 +31,14 @@ public abstract class PowerUpBase : MonoBehaviour
         _powerUpRenderer = GetComponent<MeshRenderer>();
         _powerUpCollider = GetComponent<BoxCollider>();
 
+    }
+
+    private void Update()
+    {
+        if (transform.position.z <= zValueToDespawn)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()

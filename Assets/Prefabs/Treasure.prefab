@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7580747586720516916}
   - component: {fileID: 7580747586720516919}
   - component: {fileID: 7580747586720516912}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
+  _moveSpeed: 0.15
+  zValueToDespawn: -30
   _collectParticles: {fileID: 1369858118657000876, guid: 6e152871f8b646e4dae2b5fd38d4bdef,
     type: 3}
-  _collectSound: {fileID: 8300000, guid: 4d9ebc741ee8dab4eb1e24d93033dd3d, type: 3}
+  _collectSound: {fileID: 8300000, guid: 96a3031fe09559d4584e7c17bd797877, type: 3}

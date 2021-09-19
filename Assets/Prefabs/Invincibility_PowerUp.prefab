@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4388416249697996559}
   - component: {fileID: 4388416249697996558}
   - component: {fileID: 4388416249697996553}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Invincibility_PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,8 +126,8 @@ MonoBehaviour:
   _powerUpDuration: 3
   _movementSpeed: 3
   _moveSpeed: 0.15
+  zValueToDespawn: -30
   _powerUpParticles: {fileID: 1192823997212014097, guid: 5b90936a682a6094b9ff184f9501b721,
     type: 3}
-  _powerUpSoundEffects: {fileID: 8300000, guid: 4d9ebc741ee8dab4eb1e24d93033dd3d,
+  _powerUpSoundEffects: {fileID: 8300000, guid: fddab9eeb97a8d34cacb30bcbc0e8e9c,
     type: 3}
-  _invicibilityPanel: {fileID: 0}

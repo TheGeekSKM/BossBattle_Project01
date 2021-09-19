@@ -10,6 +10,7 @@ public class ProjectileGunBase : MonoBehaviour
     // and part 2 at: https://www.youtube.com/watch?v=0jGL5_DFIo8
 
     //bullet variables
+    [Header("Bullet Variables")]
     [SerializeField] GameObject _bullet;
     [SerializeField] float _shootForce;
     [SerializeField] float _upwardForce;
@@ -21,6 +22,7 @@ public class ProjectileGunBase : MonoBehaviour
 
 
     //gun variables
+    [Header("Gun Variables")]
     [SerializeField] float _timeBetweenShots;
     [SerializeField] float _spread;
     [SerializeField] float _reloadTime;
@@ -28,6 +30,7 @@ public class ProjectileGunBase : MonoBehaviour
     [SerializeField] int _magazineSize;
     [SerializeField] int _bulletsPerTap;
     [SerializeField] bool _allowHold;
+    [SerializeField] AudioClip _fireSound;
 
     //private gun variables
     int bulletsLeft;
@@ -59,6 +62,7 @@ public class ProjectileGunBase : MonoBehaviour
     }
 
     //References
+    [Header("References")]
     [SerializeField] Transform attackPoint;
 
     //potential bug fixing?
@@ -120,7 +124,10 @@ public class ProjectileGunBase : MonoBehaviour
         currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.transform.forward * _shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.transform.up * _upwardForce, ForceMode.Impulse);
 
-
+        if (_fireSound != null)
+        {
+            AudioHelper.PlayClip2D(_fireSound, 1f);
+        }
 
         bulletsLeft--;
         bulletsShot++;

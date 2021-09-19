@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8459361691870541341}
   - component: {fileID: 8459361691870541342}
   - component: {fileID: 8459361691870541343}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Art
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 8459361692833976690}
   - component: {fileID: 8459361692833976691}
   - component: {fileID: 4347143749103268883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,8 +158,9 @@ MonoBehaviour:
   _damageAmount: 1
   _impactParticles: {fileID: 1192823997212014097, guid: 5b90936a682a6094b9ff184f9501b721,
     type: 3}
-  _impactSound: {fileID: 8300000, guid: 821f9be68beb40c469fca90d65891e2c, type: 3}
+  _impactSound: {fileID: 8300000, guid: 18b6540b10d32ff4eafad4960a8a9590, type: 3}
   _moveSpeed: 0.15
+  _zValueToDespawn: -30
 --- !u!114 &4347143749103268883
 MonoBehaviour:
   m_ObjectHideFlags: 0

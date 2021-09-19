@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] ParticleSystem _impactParticles;
     [SerializeField] AudioClip _impactSound;
     [SerializeField] float _moveSpeed = .15f;
+    [SerializeField] float _zValueToDespawn = -30f;
     protected float MoveSpeed => _moveSpeed;
 
     Rigidbody _rb;
@@ -19,6 +20,14 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (transform.position.z <= _zValueToDespawn)
+        {
+            Despawn();
+        }
     }
 
     private void FixedUpdate()
@@ -34,8 +43,13 @@ public class Enemy : MonoBehaviour
             PlayerImpact(player);
             ImpactFeedback();
 
-            gameObject.SetActive(false);
+            Despawn();
         }
+    }
+
+    private void Despawn()
+    {
+        gameObject.SetActive(false);
     }
 
     protected virtual void PlayerImpact(Player player)

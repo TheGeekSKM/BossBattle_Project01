@@ -11,6 +11,8 @@ public abstract class CollectibleBase : MonoBehaviour
     [SerializeField] float _moveSpeed = .15f;
     protected float MoveSpeed => _moveSpeed;
 
+    [SerializeField] float zValueToDespawn = -30f;
+
     [SerializeField] ParticleSystem _collectParticles;
     [SerializeField] AudioClip _collectSound;
     Rigidbody _rb;
@@ -18,6 +20,14 @@ public abstract class CollectibleBase : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (transform.position.z <= zValueToDespawn)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
