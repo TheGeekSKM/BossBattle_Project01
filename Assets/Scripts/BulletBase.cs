@@ -37,7 +37,7 @@ public class BulletBase : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        IDamageable target = other.gameObject.GetComponent<IDamageable>();
+        Health target = other.gameObject.GetComponent<Health>();
         if (target != null)
         {
             Feedback();
@@ -65,7 +65,7 @@ public class BulletBase : MonoBehaviour
         }
     }
 
-    protected virtual void Damage(IDamageable entity)
+    protected virtual void Damage(Health entity)
     {
         entity.TakeDamage(3);
     }

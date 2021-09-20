@@ -31,18 +31,35 @@ public class Health : MonoBehaviour, IDamageable
         }
     }
 
+    [SerializeField] bool _isInvincible;
+
+    public bool IsInvincible
+    {
+        get
+        {
+            return _isInvincible;
+        }
+        set
+        {
+            _isInvincible = value;
+        }
+    }
    
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
+        _isInvincible = false;
         
     }
 
 
     public void TakeDamage(int amount)
     {
-        _currentHealth -= amount;
+        if (!_isInvincible)
+        {
+            _currentHealth -= amount;
+        }
     }
 
     private void Update()

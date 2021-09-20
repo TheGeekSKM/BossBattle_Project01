@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(TankController))]
 public class Player : MonoBehaviour
@@ -10,18 +11,41 @@ public class Player : MonoBehaviour
     
     
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] GameObject _invinviblePanel;
     [SerializeField] Material playerMat;
     [SerializeField] Health playerHealth;
+    [SerializeField] ProjectileGunBase playerGun;
+
+    public Health PlayerHealth
+    {
+        get
+        {
+            return playerHealth;
+        }
+        set 
+        {
+            playerHealth = value;
+        }
+    }
+
+    public ProjectileGunBase PlayerGun
+    {
+        get
+        {
+            return playerGun;
+        }
+        set
+        {
+            playerGun = value;
+        }
+    }
+
+    
 
     private Color _playerOriginalColor;
     public Color OriginalColor => _playerOriginalColor;
 
-    private bool _invincible;
-    public bool isInvincible
-    {
-        get { return _invincible;  }
-        set { _invincible = value;  }
-    }
+   
 
     
 
@@ -48,6 +72,15 @@ public class Player : MonoBehaviour
     private void Update()
     {
         healthText.text = "" + playerHealth.CurrentHealth;
+
+        if (playerHealth.IsInvincible)
+        {
+            _invinviblePanel.SetActive(true);
+        }
+        else
+        {
+            _invinviblePanel.SetActive(false);
+        }
     }
 
     public void IncreaseHealth(int amount)

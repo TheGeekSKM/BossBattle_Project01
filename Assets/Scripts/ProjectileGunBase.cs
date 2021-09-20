@@ -49,6 +49,17 @@ public class ProjectileGunBase : MonoBehaviour
     protected int MagazineSize => _magazineSize;
     protected int BulletsPerTap => _bulletsPerTap;
     protected bool AllowHold => _allowHold;
+    public int BulletsNumber
+    {
+        get
+        {
+            return bulletsLeft;
+        }
+        set
+        {
+            bulletsLeft = value;
+        }
+    }
     protected bool Shooting
     {
         get 
@@ -74,7 +85,7 @@ public class ProjectileGunBase : MonoBehaviour
         readyToShoot = true;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         MyInput();
     }
@@ -92,17 +103,7 @@ public class ProjectileGunBase : MonoBehaviour
             _shooting = Input.GetKeyDown(KeyCode.Space);
         }
 
-        //Reloading
-        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < _magazineSize && !reloading)
-        {
-            Reloading();
-        }
-
-        //reloading automatically
-        if (readyToShoot && _shooting && !reloading && bulletsLeft <= 0)
-        {
-            Reloading();
-        }
+       
 
         //Shooting
         if (readyToShoot && _shooting && !reloading && bulletsLeft > 0)
@@ -154,16 +155,15 @@ public class ProjectileGunBase : MonoBehaviour
         allowInvoke = true;
     }
 
-    protected virtual void Reloading()
+    public void AddAmmo()
     {
-        reloading = true;
-        Invoke("ReloadFinished", _reloadTime);
+        bulletsLeft++;
     }
 
-    protected virtual void ReloadFinished()
+    public void AddAmmo(int bulletsNum)
     {
-        bulletsLeft = _magazineSize;
-        reloading = false;
+        bulletsLeft += bulletsNum;
     }
+
 
 }

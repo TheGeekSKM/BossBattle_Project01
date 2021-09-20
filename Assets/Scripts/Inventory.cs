@@ -6,8 +6,15 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     //variables
+    [Header("Variables")]
     public List<TreasureScript> coinCollection = new List<TreasureScript>();
+ 
+
+    [Header("References")]
     [SerializeField] TextMeshProUGUI coinText;
+   
+
+   
 
     public int getCoinAmount()
     {
@@ -20,4 +27,6 @@ public class Inventory : MonoBehaviour
         coinText.text = "" + coinCollection.Count;
         Debug.Log("CoinCollection_Count: " + coinCollection.Count);
     }
+
+    
 }

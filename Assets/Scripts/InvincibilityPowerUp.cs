@@ -10,14 +10,14 @@ public class InvincibilityPowerUp : PowerUpBase
     protected override void PowerUp(Player player)
     {
         player.ChangeColor(new Color(100, 0, 0));
-        player.isInvincible = true;
+        player.PlayerHealth.IsInvincible = true;
         Debug.Log("Invincible");
         
     }
 
     protected override void PowerDown(Player player)
     {
-        player.isInvincible = false;
+        player.PlayerHealth.IsInvincible = false;
         player.RevertColor();
         Debug.Log("Not Invincible");
         
