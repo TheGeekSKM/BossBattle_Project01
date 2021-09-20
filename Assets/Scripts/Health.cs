@@ -1,10 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour, IDamageable
 {
+    //Events
+    public event Action<int> Damaged = delegate { };
+    public event Action<int> Healed = delegate { };
+    public event Action Killed = delegate { };
+    
     [SerializeField] int _maxHealth = 10;
     public int MaxHealth
     {
@@ -59,6 +65,23 @@ public class Health : MonoBehaviour, IDamageable
         if (!_isInvincible)
         {
             _currentHealth -= amount;
+            Damaged.Invoke(amount);
+        }
+
+    }
+
+    public void Healing(int amount)
+    {
+        if (_currentHealth < _maxHealth)
+        {
+            _currentHealth += amount;
+            Healed.Invoke(amount);
+        }
+       
+        //tests to see if the healing might have over done it.
+        if (_currentHealth > _maxHealth)
+        {
+            _currentHealth = _maxHealth;
         }
     }
 
