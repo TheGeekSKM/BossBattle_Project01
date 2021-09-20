@@ -120,12 +120,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6698391734680697566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e500e5200705a64c8362eec66a50379, type: 3}
+  m_Script: {fileID: 11500000, guid: c5e39c5fa3b938f4ab07ed1ccc669d75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
   _moveSpeed: 0.15
-  _collectParticles: {fileID: 2726299873625252173, guid: cb68062e8ac00344a98ba2c2ac7cd76a,
+  zValueToDespawn: -30
+  _collectParticles: {fileID: 1192823997212014097, guid: 5b90936a682a6094b9ff184f9501b721,
     type: 3}
   _collectSound: {fileID: 8300000, guid: fddab9eeb97a8d34cacb30bcbc0e8e9c, type: 3}
-  _healthAdded: 1
