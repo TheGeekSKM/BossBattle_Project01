@@ -65,7 +65,7 @@ public class Health : MonoBehaviour, IDamageable
         if (!_isInvincible)
         {
             _currentHealth -= amount;
-            Damaged.Invoke(amount);
+            Damaged?.Invoke(amount);
         }
 
     }
@@ -75,7 +75,7 @@ public class Health : MonoBehaviour, IDamageable
         if (_currentHealth < _maxHealth)
         {
             _currentHealth += amount;
-            Healed.Invoke(amount);
+            Healed?.Invoke(amount);
         }
        
         //tests to see if the healing might have over done it.
@@ -95,12 +95,14 @@ public class Health : MonoBehaviour, IDamageable
         {
             Kill();
         }
-
-       
     }
 
     public void Kill()
     {
-        gameObject.SetActive(false);
+        if (!_isInvincible)
+        {
+            Killed?.Invoke();
+            gameObject.SetActive(false);
+        }
     }
 }

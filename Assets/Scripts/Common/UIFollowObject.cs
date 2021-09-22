@@ -13,9 +13,10 @@ public class UIFollowObject : MonoBehaviour
         if (_uiElement != null)
         {
             Vector3 uiPos = Camera.main.WorldToScreenPoint(transform.position);
-            _uiElement.transform.position = uiPos;
+            _uiElement.transform.position = uiPos + _desiredLocation;
         }
+        
+        
 
-        transform.position = _followObject.transform.position + _desiredLocation;
     }
 }
