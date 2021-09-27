@@ -606,36 +606,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &215839054
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 215839055}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &215839055
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 215839054}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 19.08}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &219020845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1725,6 +1695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftMostPoint: {fileID: 725336023}
   rightMostPoint: {fileID: 799286907}
+  _bossMonster: {fileID: 1334586593}
   _timeToSpawn: 1
   _timeBetweenWaves: 0.3
   spawningList:
@@ -1881,6 +1852,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugModePanel: {fileID: 829072444}
   debugSpawnText: {fileID: 1541833317}
+  _bossMonster: {fileID: 1334586596}
   healthIncrease: {fileID: 6698391734680697566, guid: 7e98e56826b84b145bf403d46252c9d3,
     type: 3}
 --- !u!4 &1112279429
@@ -2350,6 +2322,36 @@ CanvasRenderer:
 --- !u!1 &1334586593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7044861744793436794, guid: d5bab95867900764087c1637091dea3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7044861743510253211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1334586594 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7044861744793436797, guid: d5bab95867900764087c1637091dea3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7044861743510253211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1334586595 stripped
+Animation:
+  m_CorrespondingSourceObject: {fileID: 7044861744793436796, guid: d5bab95867900764087c1637091dea3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7044861743510253211}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334586596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7044861744793436798, guid: d5bab95867900764087c1637091dea3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7044861743510253211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334586593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8c2a3a0f69b2e479a80972dfd044f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1334586598 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7044861744793436799, guid: d5bab95867900764087c1637091dea3f,
     type: 3}
   m_PrefabInstance: {fileID: 7044861743510253211}
   m_PrefabAsset: {fileID: 0}
@@ -3634,6 +3636,11 @@ PrefabInstance:
       propertyPath: ammoCountText
       value: 
       objectReference: {fileID: 1381499457}
+    - target: {fileID: 61518775384584728, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
+        type: 3}
+      propertyPath: _magazineSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 61518775384584729, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
         type: 3}
       propertyPath: coinText
@@ -3877,6 +3884,31 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7044861744793436798, guid: d5bab95867900764087c1637091dea3f,
+        type: 3}
+      propertyPath: _impactSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eacb066332815f04193610f518364999, type: 3}
+    - target: {fileID: 7044861744793436798, guid: d5bab95867900764087c1637091dea3f,
+        type: 3}
+      propertyPath: _bossHealth
+      value: 
+      objectReference: {fileID: 1334586600}
+    - target: {fileID: 7044861744793436798, guid: d5bab95867900764087c1637091dea3f,
+        type: 3}
+      propertyPath: bossAnim
+      value: 
+      objectReference: {fileID: 1334586595}
+    - target: {fileID: 7044861744793436798, guid: d5bab95867900764087c1637091dea3f,
+        type: 3}
+      propertyPath: bossAnim2
+      value: 
+      objectReference: {fileID: 1334586594}
+    - target: {fileID: 7044861744793436798, guid: d5bab95867900764087c1637091dea3f,
+        type: 3}
+      propertyPath: _rob
+      value: 
+      objectReference: {fileID: 1334586598}
     - target: {fileID: 7044861744793436799, guid: d5bab95867900764087c1637091dea3f,
         type: 3}
       propertyPath: m_Constraints

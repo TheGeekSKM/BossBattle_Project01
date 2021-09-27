@@ -7,13 +7,21 @@ public class EnemySpawnScript : MonoBehaviour
     [Header("Location Transforms")]
     [SerializeField] Transform leftMostPoint;
     [SerializeField] Transform rightMostPoint;
+    [SerializeField] GameObject _bossMonster;
 
     [Header("Spawner Options")]
     [SerializeField] float _timeToSpawn = 2f;
     [SerializeField] float _timeBetweenWaves = 1f;
+    BossMonster boss;
+    
 
     [Header("Objects to Spawn")]
     [SerializeField] List<GameObject> spawningList = new List<GameObject>();
+
+    
+
+    
+
 
     //private variables
     bool equalZValues;
@@ -28,14 +36,21 @@ public class EnemySpawnScript : MonoBehaviour
         {
             equalZValues = false;
         }
+
+        boss = _bossMonster.GetComponent<BossMonster>();
     }
 
     private void Update()
     {
-        if (Time.time >= _timeToSpawn)
+
+
+        if (boss != null)
         {
-            Spawn();
-            _timeToSpawn = Time.time + _timeBetweenWaves;
+            if (Time.time >= _timeToSpawn && !boss.PhaseTwo)
+            {
+                Spawn();
+                _timeToSpawn = Time.time + _timeBetweenWaves;
+            }
         }
     }
 

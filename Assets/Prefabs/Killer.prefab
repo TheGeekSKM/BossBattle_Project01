@@ -161,6 +161,7 @@ MonoBehaviour:
   _impactSound: {fileID: 8300000, guid: 18b6540b10d32ff4eafad4960a8a9590, type: 3}
   _moveSpeed: 0.15
   _zValueToDespawn: -30
+  _rb: {fileID: 1936558424478740691}
 --- !u!114 &5367030514294371948
 MonoBehaviour:
   m_ObjectHideFlags: 0

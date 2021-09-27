@@ -161,6 +161,7 @@ MonoBehaviour:
   _impactSound: {fileID: 8300000, guid: 18b6540b10d32ff4eafad4960a8a9590, type: 3}
   _moveSpeed: 0.15
   _zValueToDespawn: -30
+  _rb: {fileID: 5516628183083614449}
   _slowAmount: 0.07
 --- !u!114 &-2570186324284961602
 MonoBehaviour:
@@ -175,3 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
+  _isInvincible: 0

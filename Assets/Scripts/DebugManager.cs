@@ -9,6 +9,7 @@ public class DebugManager : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject debugModePanel;
     [SerializeField] TextMeshProUGUI debugSpawnText;
+    [SerializeField] BossMonster _bossMonster;
 
     [Header("Spawning References")]
     [SerializeField] GameObject healthIncrease;
@@ -29,6 +30,15 @@ public class DebugManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            _bossMonster.BossHealth.TakeDamage(5);
+        }
+
+
+
+        #region ItemSpawning
         if (Input.GetMouseButtonDown(0))
         {
             if (spawnHealthIncrease && debugMode)
@@ -36,6 +46,17 @@ public class DebugManager : MonoBehaviour
                 Instantiate(healthIncrease, new Vector3(0f, 0.5f, 20f), Quaternion.identity);
             }
         }
+
+        if (spawnHealthIncrease && debugSpawnText != null)
+        {
+            debugSpawnText.text = "Health Increase";
+        }
+        else if (!spawnHealthIncrease && debugSpawnText != null)
+        {
+            debugSpawnText.text = neutralText;
+        }
+        #endregion
+
 
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -51,14 +72,7 @@ public class DebugManager : MonoBehaviour
             DebugVisualsOff();
         }
 
-        if (spawnHealthIncrease && debugSpawnText != null)
-        {
-            debugSpawnText.text = "Health Increase";
-        }
-        else if (!spawnHealthIncrease && debugSpawnText!= null)
-        {
-            debugSpawnText.text = neutralText;
-        }
+       
 
 
         //HealthIncrease

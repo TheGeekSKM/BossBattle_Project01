@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] float _zValueToDespawn = -30f;
     protected float MoveSpeed => _moveSpeed;
 
-    Rigidbody _rb;
+    [SerializeField] Rigidbody _rb;
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7044861744793436796}
   - component: {fileID: 7044861744793436797}
   - component: {fileID: 7044861744793436787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,6 +78,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8c2a3a0f69b2e479a80972dfd044f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageAmount: 1
+  _impactParticles: {fileID: 1192823997212014097, guid: 5b90936a682a6094b9ff184f9501b721,
+    type: 3}
+  _impactSound: {fileID: 0}
+  _moveSpeed: 0.15
+  _zValueToDespawn: -30
+  _rb: {fileID: 7044861744793436799}
+  _phaseTwo: 0
+  _bossHealth: {fileID: 7044861744793436787}
+  bossAnim: {fileID: 7044861744793436796}
+  bossAnim2: {fileID: 7044861744793436797}
 --- !u!111 &7044861744793436796
 Animation:
   m_ObjectHideFlags: 0
@@ -212,6 +223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: monsterBoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 08d560cc874096b4e9af278b5e7e0994,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08d560cc874096b4e9af278b5e7e0994, type: 3}
