@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7035544556421034330}
   - component: {fileID: 2071139033689638318}
   - component: {fileID: 8861036991352361143}
+  - component: {fileID: -4531700023222666995}
   m_Layer: 0
   m_Name: SlowPokeParticles
   m_TagString: Untagged
@@ -4754,3 +4755,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-4531700023222666995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979874738233422886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef9537f9839c847bccba15f1948040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decayTime: 3

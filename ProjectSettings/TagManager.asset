@@ -16,8 +16,8 @@ TagManager:
   - Barriers
   - Enemies
   - PickUps
-  - 
-  - 
+  - PlayerProjectiles
+  - EnemyProjectiles
   - 
   - 
   - 

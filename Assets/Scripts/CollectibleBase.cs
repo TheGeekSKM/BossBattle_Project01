@@ -26,7 +26,7 @@ public abstract class CollectibleBase : MonoBehaviour
     {
         if (transform.position.z <= zValueToDespawn)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
@@ -52,7 +52,7 @@ public abstract class CollectibleBase : MonoBehaviour
             Collect(player);
             Feedback();
 
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

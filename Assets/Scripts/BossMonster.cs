@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class BossMonster : Enemy
     [SerializeField] Transform playerTransform;
     [SerializeField] float timeBetweenMissiles = 3f;
     [SerializeField] GameObject bossProjectile;
+    [SerializeField] float rotationSpeed = 2f;
 
     bool attacked = false;
 
@@ -20,6 +22,8 @@ public class BossMonster : Enemy
     Vector3 endPostion;
     float movementDuration = 50f;
     float elapsedTime;
+
+    public event Action PhaseTwoEvent = delegate { };
 
     #region Properties
     public bool PhaseTwo
@@ -88,6 +92,7 @@ public class BossMonster : Enemy
 
     void BossPhaseTwo()
     {
+        PhaseTwoEvent?.Invoke();
         bossAnim.enabled = false;
         bossAnim2.enabled = false;
         startPosition = transform.position;
@@ -102,13 +107,14 @@ public class BossMonster : Enemy
 
     private void AttackPlayer()
     {
-        transform.LookAt(new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z));
+        transform.LookAt(playerTransform.position);
 
         if (!attacked)
         {
-            Rigidbody projectileRB = Instantiate(bossProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            projectileRB.AddForce(transform.forward * 30f, ForceMode.Impulse);
-            projectileRB.AddForce(transform.up * 5f, ForceMode.Impulse);
+            Rigidbody projectileRB = Instantiate(bossProjectile, new Vector3(transform.position.x, playerTransform.position.y, transform.position.z), Quaternion.identity).GetComponent<Rigidbody>();
+            projectileRB.AddForce(transform.forward * 20f, ForceMode.Impulse);
+            
+            
 
             attacked = true;
             Invoke(nameof(ResetAttack), timeBetweenMissiles);
@@ -119,4 +125,6 @@ public class BossMonster : Enemy
     {
         attacked = false;
     }
+
+   
 }

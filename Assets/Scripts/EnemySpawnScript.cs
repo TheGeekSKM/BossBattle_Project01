@@ -50,7 +50,7 @@ public class EnemySpawnScript : MonoBehaviour
             {
                 leftMostPoint.transform.position = new Vector3(-34.4f, 0f, 36.1f);
                 rightMostPoint.transform.position = new Vector3(34.4f, 0f, 36.1f);
-                _timeBetweenWaves = 0.2f;
+                _timeBetweenWaves = 0.3f;
             }
 
             if (Time.time >= _timeToSpawn)

@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     private void Despawn()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     protected virtual void ObjectImpact(GameObject gameColl)

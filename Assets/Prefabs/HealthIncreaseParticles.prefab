@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6397553278284780985}
   - component: {fileID: 2726299873625252173}
   - component: {fileID: 4869324142232679508}
+  - component: {fileID: 2597226938634279447}
   m_Layer: 0
   m_Name: HealthIncreaseParticles
   m_TagString: Untagged
@@ -4754,3 +4755,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2597226938634279447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2455032605469855941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edef9537f9839c847bccba15f1948040, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decayTime: 3

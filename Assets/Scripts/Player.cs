@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] GameObject _invinviblePanel;
     [SerializeField] Material playerMat;
+    [SerializeField] Material playerOriginalMat;
     [SerializeField] Health playerHealth;
     [SerializeField] ProjectileGunBase playerGun;
 
@@ -42,8 +43,7 @@ public class Player : MonoBehaviour
 
     
 
-    private Color _playerOriginalColor;
-    public Color OriginalColor => _playerOriginalColor;
+    
 
    
 
@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _tankController = GetComponent<TankController>();
-        _playerOriginalColor = playerMat.color;
+        playerMat.SetColor("_Color", playerOriginalMat.color);
         playerHealth.MaxHealth = 5;
     }
 
@@ -81,6 +81,11 @@ public class Player : MonoBehaviour
         {
             _invinviblePanel.SetActive(false);
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            playerMat.SetColor("_Color", playerOriginalMat.color);
+        }
     }
 
     public void IncreaseHealth(int amount)
@@ -97,7 +102,7 @@ public class Player : MonoBehaviour
 
     public void RevertColor()
     {
-        playerMat.color = _playerOriginalColor;
+        playerMat.SetColor("_Color", playerOriginalMat.color);
     }
 
     public void DecreaseHealth(int amount)

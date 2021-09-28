@@ -123,7 +123,7 @@ public class ProjectileGunBase : MonoBehaviour
         //currentBullet.transform.forward = attackPoint.transform.forward;
 
         currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.transform.forward * _shootForce, ForceMode.Impulse);
-        currentBullet.GetComponent<Rigidbody>().AddForce(attackPoint.transform.up * _upwardForce, ForceMode.Impulse);
+        
 
         if (_fireSound != null)
         {

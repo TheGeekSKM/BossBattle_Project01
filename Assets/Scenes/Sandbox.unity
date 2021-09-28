@@ -3662,6 +3662,11 @@ PrefabInstance:
       propertyPath: _invinviblePanel
       value: 
       objectReference: {fileID: 1255816156}
+    - target: {fileID: 61518775384584730, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
+        type: 3}
+      propertyPath: playerOriginalMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 9833c201a6b362148be17638181a254e, type: 2}
     - target: {fileID: 61518775384584733, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4050,6 +4055,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7044861744793436799, guid: d5bab95867900764087c1637091dea3f,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372068316674696963, guid: d5bab95867900764087c1637091dea3f,
         type: 3}

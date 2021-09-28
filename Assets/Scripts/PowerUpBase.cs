@@ -37,7 +37,7 @@ public abstract class PowerUpBase : MonoBehaviour
     {
         if (transform.position.z <= zValueToDespawn)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 

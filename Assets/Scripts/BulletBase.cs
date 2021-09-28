@@ -6,9 +6,13 @@ public class BulletBase : MonoBehaviour
 {
     //Variables
     [SerializeField] float _damageAmount;
+    [SerializeField] float _explosionDamage;
     [SerializeField] float _explosionRadius;
     [SerializeField] ParticleSystem _explosionParticle;
     [SerializeField] AudioClip _bulletSoundEffect;
+
+    [Range(0f, 1f)]
+    [SerializeField] float bounciness;
 
     //Properties
     protected float DamageAmount
@@ -35,6 +39,32 @@ public class BulletBase : MonoBehaviour
         }
     }
 
+    protected float Bounciness
+    {
+        get
+        {
+            return bounciness;
+        }
+        set
+        {
+            bounciness = value;
+        }
+    }
+
+    protected float ExplosionDamage
+    {
+        get
+        {
+            return _explosionDamage;
+        }
+        set
+        {
+            _explosionDamage = value;
+        }
+    }
+
+    bool useGravity;
+
     private void OnTriggerEnter(Collider other)
     {
         Health target = other.gameObject.GetComponent<Health>();
@@ -52,7 +82,7 @@ public class BulletBase : MonoBehaviour
     {
         if (transform.position.z > 50 || transform.position.z < -50 || transform.position.x > 75 || transform.position.x < -75)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 
