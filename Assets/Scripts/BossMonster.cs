@@ -10,7 +10,11 @@ public class BossMonster : Enemy
     [SerializeField] Health _bossHealth;
     [SerializeField] Animation bossAnim;
     [SerializeField] Animator bossAnim2;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] float timeBetweenMissiles = 3f;
+    [SerializeField] GameObject bossProjectile;
 
+    bool attacked = false;
 
     Vector3 startPosition;
     Vector3 endPostion;
@@ -40,11 +44,22 @@ public class BossMonster : Enemy
             _bossHealth = value;
         }
     }
+    public float TimeBetweenMissiles
+    {
+        get
+        {
+            return timeBetweenMissiles; 
+        }
+        set
+        {
+            timeBetweenMissiles = value;
+        }
+    }
     #endregion
 
     private void Awake()
     {
-        
+
     }
 
     private void Update()
@@ -52,6 +67,7 @@ public class BossMonster : Enemy
         if (_bossHealth.CurrentHealth < (_bossHealth.MaxHealth / 2))
         {
             _phaseTwo = true;
+
         }
         else
         {
@@ -67,7 +83,7 @@ public class BossMonster : Enemy
 
     protected override void Move()
     {
-        
+
     }
 
     void BossPhaseTwo()
@@ -80,5 +96,27 @@ public class BossMonster : Enemy
         float completed = elapsedTime / movementDuration;
 
         transform.position = Vector3.Lerp(startPosition, new Vector3(0f, 0f, 18f), completed);
+
+        AttackPlayer();
+    }
+
+    private void AttackPlayer()
+    {
+        transform.LookAt(new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z));
+
+        if (!attacked)
+        {
+            Rigidbody projectileRB = Instantiate(bossProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            projectileRB.AddForce(transform.forward * 30f, ForceMode.Impulse);
+            projectileRB.AddForce(transform.up * 5f, ForceMode.Impulse);
+
+            attacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenMissiles);
+        }
+    }
+
+    private void ResetAttack()
+    {
+        attacked = false;
     }
 }

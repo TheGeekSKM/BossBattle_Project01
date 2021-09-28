@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class EnemySpawnScript : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class EnemySpawnScript : MonoBehaviour
 
     [Header("Spawner Options")]
     [SerializeField] float _timeToSpawn = 2f;
-    [SerializeField] float _timeBetweenWaves = 1f;
+    [SerializeField] float _timeBetweenWaves = 0.5f;
     BossMonster boss;
     
 
@@ -46,12 +46,21 @@ public class EnemySpawnScript : MonoBehaviour
 
         if (boss != null)
         {
-            if (Time.time >= _timeToSpawn && !boss.PhaseTwo)
+            if (boss.PhaseTwo)
+            {
+                leftMostPoint.transform.position = new Vector3(-34.4f, 0f, 36.1f);
+                rightMostPoint.transform.position = new Vector3(34.4f, 0f, 36.1f);
+                _timeBetweenWaves = 0.2f;
+            }
+
+            if (Time.time >= _timeToSpawn)
             {
                 Spawn();
                 _timeToSpawn = Time.time + _timeBetweenWaves;
             }
         }
+
+        
     }
 
     private void Spawn()
