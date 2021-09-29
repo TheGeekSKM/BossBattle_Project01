@@ -226,7 +226,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &61518775384584731
 MonoBehaviour:
@@ -241,6 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 0.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8192
   _turnSpeed: 3
 --- !u!114 &61518775384584730
 MonoBehaviour:
@@ -257,6 +260,7 @@ MonoBehaviour:
   healthText: {fileID: 0}
   _invinviblePanel: {fileID: 0}
   playerMat: {fileID: 2100000, guid: b1310ba89d583b1449ae1c0bf6e5b4f0, type: 2}
+  playerOriginalMat: {fileID: 2100000, guid: 9833c201a6b362148be17638181a254e, type: 2}
   playerHealth: {fileID: 61518775384584727}
   playerGun: {fileID: 61518775384584728}
   playerInventory: {fileID: 61518775384584729}
@@ -342,7 +346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBarSlider: {fileID: 0}
-  _playerHealth: {fileID: 0}
+  _healthBar: {fileID: 0}
+  _playerHealth: {fileID: 61518775384584727}
 --- !u!1 &61518775428520340
 GameObject:
   m_ObjectHideFlags: 0

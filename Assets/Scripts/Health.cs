@@ -10,6 +10,9 @@ public class Health : MonoBehaviour, IDamageable
     public event Action<int> Damaged = delegate { };
     public event Action<int> Healed = delegate { };
     public event Action Killed = delegate { };
+    public event Action Respawned = delegate { };
+
+    [SerializeField] bool isPlayer = false;
     
     [SerializeField] int _maxHealth = 10;
     public int MaxHealth
@@ -102,7 +105,15 @@ public class Health : MonoBehaviour, IDamageable
         if (!_isInvincible)
         {
             Killed?.Invoke();
-            gameObject.SetActive(false);
+
+            if (!isPlayer)
+            {
+                Destroy(gameObject);
+            }
+            else if (isPlayer)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+
 using TMPro;
 using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
     [SerializeField] float _moveSpeed = .25f;
+    [SerializeField] LayerMask groundLayer;
+    
 
     public float MaxSpeed
     {
@@ -20,6 +23,11 @@ public class TankController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void FixedUpdate()
@@ -43,6 +51,12 @@ public class TankController : MonoBehaviour
 
     public void TurnTank()
     {
+
+        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, groundLayer))
+        //{
+        //    _rb.rotation = Quaternion.LookRotation(raycastHit.point);
+        //}
 
         //// calculate the turn amount
         float turnAmountThisFrame = Input.GetAxis("Horizontal") * _turnSpeed;

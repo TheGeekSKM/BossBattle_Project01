@@ -7,16 +7,11 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject _menuScreen;
     [SerializeField] GameObject _creditsScreen;
-    public void OpenMenu()
-    {
-        _menuScreen.SetActive(true);
-        _creditsScreen.SetActive(false);
-    }
+    
 
     public void OpenCredits()
     {
-        _menuScreen.SetActive(false);
-        _creditsScreen.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     private void Update()
@@ -29,7 +24,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void ExitGame()

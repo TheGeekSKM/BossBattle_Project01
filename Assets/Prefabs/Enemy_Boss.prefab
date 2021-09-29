@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 7044861744793436796}
   - component: {fileID: 7044861744793436797}
   - component: {fileID: 7044861744793436787}
+  - component: {fileID: 1334586601}
+  - component: {fileID: 1334586602}
   m_Layer: 9
   m_Name: Enemy_Boss
   m_TagString: Untagged
@@ -29,14 +31,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7044861744793436794}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: -0.00000019861236, y: -0.7071068, z: -0.7071068, w: 0.00000019861236}
   m_LocalPosition: {x: -0.1, y: -0.2, z: 27.29}
-  m_LocalScale: {x: 16.285185, y: 16.285181, z: 16.285181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6436683891451865396}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -179.99998}
 --- !u!54 &7044861744793436799
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51,7 +53,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 12
   m_CollisionDetection: 0
 --- !u!65 &7044861744793436792
 BoxCollider:
@@ -64,8 +66,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.76, y: 0.27, z: 0.99}
-  m_Center: {x: 0, y: 0, z: 0.51}
+  m_Size: {x: 16.36, y: 14.796807, z: 5.88}
+  m_Center: {x: 0, y: 7.6434035, z: 0}
 --- !u!114 &7044861744793436798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +83,7 @@ MonoBehaviour:
   _damageAmount: 1
   _impactParticles: {fileID: 1192823997212014097, guid: 5b90936a682a6094b9ff184f9501b721,
     type: 3}
-  _impactSound: {fileID: 0}
+  _impactSound: {fileID: 8300000, guid: eacb066332815f04193610f518364999, type: 3}
   _moveSpeed: 0.15
   _zValueToDespawn: -30
   _rb: {fileID: 7044861744793436799}
@@ -90,6 +92,10 @@ MonoBehaviour:
   bossAnim: {fileID: 7044861744793436796}
   bossAnim2: {fileID: 7044861744793436797}
   playerTransform: {fileID: 0}
+  timeBetweenMissiles: 3
+  bossProjectile: {fileID: 4425352359182816870, guid: b51b7db84d1f65e47b693c7ec5eea8f7,
+    type: 3}
+  rotationSpeed: 2
 --- !u!111 &7044861744793436796
 Animation:
   m_ObjectHideFlags: 0
@@ -136,8 +142,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb45889c6ac8f0c4ca3111869a2a6b3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 50
   _isInvincible: 0
+--- !u!114 &1334586601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044861744793436794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e1fb67bfb17144d9788076e39f3727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiElement: {fileID: 0}
+  _followObject: {fileID: 7044861744793436794}
+  _desiredLocation: {x: 0, y: 81.89, z: 0}
+--- !u!114 &1334586602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7044861744793436794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bff7f2f022dcdc46a5504a3f644ee62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBarSlider: {fileID: 0}
+  _healthBar: {fileID: 0}
+  _playerHealth: {fileID: 7044861744793436787}
 --- !u!1001 &6834503358704439007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,12 +204,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 194bcbed2e5d90f44ba11afdab302c90,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194bcbed2e5d90f44ba11afdab302c90,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 194bcbed2e5d90f44ba11afdab302c90,
         type: 3}
@@ -200,6 +236,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 194bcbed2e5d90f44ba11afdab302c90,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 194bcbed2e5d90f44ba11afdab302c90,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 194bcbed2e5d90f44ba11afdab302c90,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 194bcbed2e5d90f44ba11afdab302c90,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 584affd2f2cd5ab41b51641fc97c1c6c, type: 2}
     - target: {fileID: 919132149155446097, guid: 194bcbed2e5d90f44ba11afdab302c90,
         type: 3}
       propertyPath: m_Name
