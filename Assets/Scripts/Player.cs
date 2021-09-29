@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     
     
     [SerializeField] TextMeshProUGUI healthText;
+    [SerializeField] TextMeshProUGUI lifeText;
+    [SerializeField] RespawnScript respawnObject; 
     [SerializeField] GameObject _invinviblePanel;
     [SerializeField] Material playerMat;
     [SerializeField] Material playerOriginalMat;
@@ -72,6 +74,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         healthText.text = "" + playerHealth.CurrentHealth;
+        lifeText.text = "" + respawnObject.NumOfLives;
 
         if (playerHealth.IsInvincible)
         {

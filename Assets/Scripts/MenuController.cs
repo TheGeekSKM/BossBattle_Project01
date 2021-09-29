@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject _menuScreen;
     [SerializeField] GameObject _creditsScreen;
+    [SerializeField] int _sceneBuildIndex;
     
 
     public void OpenCredits()
@@ -30,6 +31,16 @@ public class MenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(_sceneBuildIndex);
+    }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 
 }
