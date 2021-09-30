@@ -3878,6 +3878,10 @@ PrefabInstance:
       propertyPath: _uiElement
       value: 
       objectReference: {fileID: 196608630}
+    - target: {fileID: 732590201, guid: 85f76fc620cfd5b4ab8976dc9835e8cc, type: 3}
+      propertyPath: _desiredLocation.y
+      value: 16.66
+      objectReference: {fileID: 0}
     - target: {fileID: 61518775384584727, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
         type: 3}
       propertyPath: isPlayer
@@ -3972,6 +3976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 61518775777565729, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 8164364741526794098, guid: 85f76fc620cfd5b4ab8976dc9835e8cc,
         type: 3}

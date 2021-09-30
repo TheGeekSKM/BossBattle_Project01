@@ -58,7 +58,9 @@ public class RespawnScript : MonoBehaviour
     {
         if (numOfLives > 0)
         {
+            numOfLives--;
             playerObject.transform.position = respawnPoint.position;
+            playerHealth.CurrentHealth = playerHealth.MaxHealth;
             playerObject.SetActive(true);
             healthBar.SetActive(true);
         }
